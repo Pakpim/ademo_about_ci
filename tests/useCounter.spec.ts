@@ -1,5 +1,6 @@
 import { renderHook, act } from '@testing-library/react';
 import useCounter from '../src/hooks/features/homepage/useCounter';
+import { describe, it } from 'node:test';
 
 describe('useCounter', () => {
   it('should initialize count to 0 and val to 1', () => {
@@ -25,3 +26,7 @@ describe('useCounter', () => {
     expect(result.current.count).toBe(5);
   });
 });
+
+function expect(count: number) {
+  throw new Error('Function not implemented.');
+}
