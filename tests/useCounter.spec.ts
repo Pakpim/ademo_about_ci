@@ -1,8 +1,13 @@
+import { describe, it, expect } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import useCounter from '../src/hooks/features/homepage/useCounter';
-import { describe, it } from 'node:test';
 
 describe('useCounter', () => {
+  it('should run test', () => {
+    expect(true).toBe(true);
+    expect(false).toBe(false);
+  });
+
   it('should initialize count to 0 and val to 1', () => {
     const { result } = renderHook(() => useCounter());
     expect(result.current.count).toBe(0);
@@ -21,12 +26,12 @@ describe('useCounter', () => {
     const { result } = renderHook(() => useCounter());
     act(() => {
       result.current.setVal(5);
+    });
+    expect(result.current.val).toBe(5)
+    expect(result.current.count).toBe(0)
+    act(() => {
       result.current.increment();
     });
-    expect(result.current.count).toBe(5);
+    expect(result.current.count).toBe(5)
   });
 });
-
-function expect(count: number) {
-  throw new Error('Function not implemented.');
-}
